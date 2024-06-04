@@ -1,0 +1,247 @@
+.header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px;
+     background-color: #f3f4f6;
+     border-bottom: 1px solid #ddd;
+     flex-wrap: wrap;
+     .welcome {
+          font-size: 30px;
+          font-weight: 500;
+          color: #333;
+          span{
+               font-style: italic;
+               color: #333;
+          }
+     }
+     
+     .images {
+          width: 300px;
+          height: 300px;
+     }
+}
+#newForm {
+     display: none;
+     z-index: 5;
+     position: absolute;
+     width: 90vw;
+     height: max-content;
+     background-color: #f0f4f8; /* Changed blue to a lighter shade */
+     border-radius: 20px;
+     left: 5vw;
+     top: 10vh;
+     padding: 20px; /* Added padding for spacing */
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Increased box-shadow for depth */ 
+     input[type="text"],
+     input[type="date"],
+     textarea {
+          background-color: #f6f9fc; /* Adjusted background color */
+          color: #333; /* Changed text color */
+          border: 1px solid #ddd; /* Added border for input fields */
+          border-radius: 8px; /* Slightly reduced border radius */
+          padding: 10px; /* Increased padding for input fields */
+          margin: 10px 0; /* Adjusted margin for input fields */
+          width: calc(100% - 22px)!important; /* Adjusted width for input fields */
+     }
+     input[type="file"] {
+          display: none; /* Hide file input field */
+     }
+     .image-label{
+          width: 100%;
+          height: 150px;
+          background-color: #5baaff;
+          border: dashed thin #003f82;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+     }
+     .image-label > h1{
+          font-size: 3rem;
+     }
+     label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px; /* Added margin bottom for labels */
+     }
+     button.upload-btn {
+          background-color: #007bff; /* Changed button color */
+          color: #fff; /* Changed button text color */
+          border: none;
+          border-radius: 8px;
+          padding: 12px 20px; /* Increased padding for button */
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 1.5s ease; /* Added transition for hover effect */
+     }
+     button.upload-btn:hover {
+          background-color: #0056b3; /* Darker color on hover */
+     }
+}
+.close{
+     border: 1px solid black;
+     font-weight: 900;
+     font-size: 20px;
+     width: max-content;
+     position: absolute;
+     right: 1%;
+     top: 1%;
+     cursor: pointer;
+     border-radius: 50%;
+     padding: 5px;
+}
+.image-space, .imageCover, .airtistImg{
+     height: 30vh;
+     border: #ff5e3a 1px dashed;
+     /* display: none; */
+     img{
+          object-fit: contain;
+          height: 100%;
+     }
+}
+.image-space{
+     overflow-x: scroll;
+}
+#uploadnews {
+     border: 2px solid #24b4fb;
+     background-color: #24b4fb;
+     border-radius: 0.9em;
+     padding: 0.8em 1.2em 0.8em 1em;
+     transition: all ease-in-out 0.2s;
+     font-size: 16px;
+     span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-weight: 600;
+     }
+}
+#uploadnews:hover {
+     background-color: #0071e2;
+}
+.advert {
+     margin-top: 20px;
+     padding: 20px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+     height: max-content;
+     overflow: hidden;
+     .textss , .head{
+          font-size: 25px;
+          font-weight: 500;
+          font-style: oblique;
+          color: #333;
+     }
+}
+#newss{
+     padding: 20px;
+     .newss {
+          padding: 20px;
+          display: grid;
+          gap: 30px;
+          grid-template-columns: repeat(4,1fr);
+     }
+     .news {
+          padding: 10px;
+          background-color: #c9b2b2;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          gap: 20px;
+     }
+     .btns {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+     }
+     .delbutton {
+          position: relative;
+          width: 110px;
+          height: 40px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          border-radius: 10px;
+          border: 1px solid #cc0000;
+          background-color: #e50000;
+          overflow: hidden;
+          .button__icon, .button__text {
+          transition: all 0.3s;
+          }
+          .button__text {
+          color: #fff;
+          transform: translateX(10px);
+          font-weight: 600;
+          }
+          .button__icon {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          width: 35%;
+          background-color: #cc0000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+          .svg {
+          width: 20px;
+          }
+     }
+     .delbutton:hover {
+          background: #cc0000;
+           .button__text {
+          color: transparent;
+        }
+         .button__icon {
+          width: 100%;
+          transform: translateX(0);
+        }
+     }
+     .delbutton:active .button__icon {
+          background-color: #b20000;
+     }   
+     .delbutton:active {
+          border: 1px solid #b20000;
+     }
+     .editBtn{
+          border: 1px solid #585769;
+          background-color: #313153;
+          .svg {
+               fill: white;
+          }
+          .button__icon {
+               background-color: #24243e;
+          }
+     }
+     .editBtn:hover {
+          background: #313153;
+     }
+     .editBtn:active{
+          border: 1px solid #313153b5;
+     }
+     .editBtn:active .button__icon {
+          background-color: #313153b5;
+     }
+     .title {
+          font-size: 24px;
+          margin-bottom: 10px;
+     }
+     .description{
+          margin-bottom: 5px;
+          font-size: 14px;
+     }
+     .additional-info {
+          font-style: italic;
+     }
+     .content{
+          height: 100px;
+          overflow: hidden;
+     }
+}

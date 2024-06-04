@@ -1,0 +1,155 @@
+.carousel, .carousel-inner, .carousel-item{
+     height: 70vh!important;
+     img{
+          object-fit: cover;
+     }
+}
+.extt{
+     background: #20355699;
+     height: 100%;
+     width: 100%;
+     color: #fff;
+     border-radius: 30px;
+     padding: 20px;
+     .cartegosy{
+          background-color: #ff5e3a;
+          color: #fff;
+          border-radius: 30px;
+          padding: 1px 10px;
+          font-size: 20px;
+          width: max-content;
+     }
+     .titll{
+          font-size: 35px;
+          color: #fff;
+          font-weight: 700;
+     }
+}
+#afro, #amapiano, #gospel{
+     .headd{
+          font-size: 30px;
+          font-weight: 700;
+          color: #0d2b41;
+     }
+     .ankas{
+          border: 1px solid #20355699;
+          border-radius: 30px;
+          .blog{
+               border: none;
+          }
+          .oneee{
+               .imag{
+                    width: 200px;
+                    border-radius: 30px;
+                    img{
+                         border-radius: 10px;
+                    }
+               }
+               .head{
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #0d2b41;
+               }
+               .dateee{
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: #20355699;
+               }
+          }
+     }   
+}
+.gande{
+     border-radius: 30px;
+     overflow: hidden;
+     height: 40vh;
+     .IMga{
+          width: 100%;
+          height: 100%;
+          img{
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+          }
+     }
+     .extt{
+          background: #20355699;
+          height: 100%;
+          left: 0;
+          top: 0;
+          position: absolute;
+          width: 100%;
+          color: #fff;
+          border-radius: 30px;
+          padding-left: 50px;
+          padding-top: 20%;
+          .cartegosy{
+               background-color: #ff5e3a;
+               border-radius: 30px;
+               padding: 1px 10px;
+               width: max-content;
+          }
+          .titll{
+               font-size: 20px;
+               width: 70%;
+               font-weight: 700;
+          }
+          .bbsb{
+               font-size: 15px;
+               font-weight: 300;
+               color: #ffffffd6;
+          }
+     }
+}
+.col{
+     border: 1px solid #20355699;
+     border-radius: 30px;
+     .topsss{
+          border-radius: 30px;
+          height: 200px;
+          img{
+               border-radius: 30px;
+          }
+     }
+     .story{
+          height: max-content;
+     }
+     .moree{
+          height: max-content;
+          width: 80%;
+          margin: 0 auto;
+     }
+     .blog{
+          border: none;
+          height: max-content;
+     }
+     .topic{
+          font-size: 20px;
+          font-weight: 700;
+          color: #0d2b41;
+     }
+     .text{
+          font-size: 15px;
+          font-weight: 300;   
+          color: #20355699
+     }
+     .abouu{
+          font-size: 15px;
+          font-weight: 600;
+          color: #8f9bad;
+     }
+     .blog{
+          border-bottom: 1px solid #20355699!important;
+          padding: 20px 0;
+     }
+}
+@media (max-width:500px) {
+     .col-6{
+          width: 100%;
+     }
+     .gande{
+          margin: 5px 0;
+     }
+     .topsss{
+          display: none;
+     }
+}
