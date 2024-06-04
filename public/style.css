@@ -17,9 +17,12 @@ img{
 }
 .btn-primary{
      background-color: #0d2b41!important;
-     color: #fff!important;
      border: none;
      outline: none;
+     a{
+          color: #fff!important;
+          text-decoration: none;
+     }
 }
 /* <!-- Navbar --> */
 .navbar{
@@ -43,14 +46,6 @@ img{
           color: #0d2b41;
           a{
                font-weight: 900;
-          }
-     }
-     .buttons{
-          .fa-magnifying-glass{
-               font-size: 1.5rem;
-               border: none;
-               outline: none;
-               background-color: transparent;
           }
      }
 }

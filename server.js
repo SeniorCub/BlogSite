@@ -5,6 +5,10 @@ import dotenv from 'dotenv';
 import connectdB from './dB/connect.js';
 import morgan from 'morgan';
 import blogroute from './routes/blogroute.js';
+import bcrypt from 'bcrypt';
+import color from 'colors';
+import usermodels from './models/usermodels.js';
+import authroute from './routes/authroute.js';
 
 const app = express();
 dotenv.config();
@@ -22,6 +26,7 @@ app.use((req, res, next) => {
      res.status(404).sendFile(path.join(process.cwd(), "/View/404.html"));
 });
 
+app.use('/api/v1/auth', authroute);
 app.use('/api/v1/blog', blogroute);
 
 const PORT = process.env.PORT || 7000
