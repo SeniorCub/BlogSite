@@ -62,7 +62,7 @@
      <!-- Font Awsome Link -->
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
      <!-- Bootstrap JS -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-5pQxFJdgv0Mm2JLDAwIvYv4pO3U5E6fY6b7Z1R+U2mzKx2t6ug5s6G2O3u8z+Z5J" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
      <script>
           document.querySelector('#loginForm').addEventListener('submit', function (event) {
@@ -71,16 +71,21 @@
                const email = document.querySelector('#email').value;
                const password = document.querySelector('#password').value;
 
-               axios.post('http://localhost:2020/api/v1/auth/login', { email, password })
+               axios.post('http://localhost:7070/api/v1/auth/login', { email, password })
                .then(function (response) {
-                    console.log("Login successful");
 
                     const token = response.data.token;
-                    const role = response.role;
+                    const role = response.data.user.email;
 
                     localStorage.setItem('token', token);
-
-                    window.location.href = '/dashboard.html';
+                    console.log(role)
+                    if (role == "amebo@mail.com") {
+                         window.location.href = '/adminss.html';
+                         console.log("Login successful");
+                    } else {
+                         console.log("Login successful");
+                         window.location.href = '/index.html';
+                    }
                })
                .catch(function (error) {
                     console.log('Login failed:', error.response.data);
