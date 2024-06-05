@@ -6,34 +6,36 @@ import blogModels from "../models/blogmodels.js";
 
 export const uploadBlog = async (req, res) => {
     try {
-        const {title, content, image} = req.body
+        const { title, content, author, category, quote } = req.body;
+        const files = req.files;
 
-        const imageURL = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
-
-        console.log(req.file.filename);
-
-        // if (!title || !content) {
-        //     return res.send("Fill out all Fields");
-        // }
+        const airtistImgURL = `${req.protocol}://${req.get('host')}/uploads/airtistImg/${files.airtistImg[0].filename}`;
+        const imageCoverURL = `${req.protocol}://${req.get('host')}/uploads/CoverImg/${files.imageCover[0].filename}`;
+        const imageURL = `${req.protocol}://${req.get('host')}/uploads/allImg/${files.image[0].filename}`;
 
         const newBlog = new blogModels({
-            title, 
-            content, 
+            title,
+            content,
+            author,
+            category,
+            airtistImg: airtistImgURL,
+            imageCover: imageCoverURL,
+            quote,
             image: imageURL
         });
-        await newBlog.save()
-        
+        await newBlog.save();
+
         res.status(200).json({
-            success: true, 
-            msg: "Blod Posted Succesfully"
-        })
+            success: true,
+            msg: "Blog Posted Successfully"
+        });
     } catch (err) {
         return res.status(500).json({
-            success: false, 
-            msg: err.message 
+            success: false,
+            msg: err.message
         });
     }
-}
+};
 
 export const getBlog = async (req, res) => {
     try {

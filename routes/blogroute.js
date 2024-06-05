@@ -9,29 +9,33 @@ const router = express.Router();
 // Set up Multer storage configuration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      // Specify the directory where uploaded files should be stored
-      cb(null, 'uploads/');
+        if (file.fieldname === 'airtistImg') {
+            cb(null, 'uploads/airtistImg');
+        } else if (file.fieldname === 'imageCover') {
+            cb(null, 'uploads/CoverImg');
+        } else {
+            cb(null, 'uploads/allImg');
+        }
     },
     filename: function (req, file, cb) {
-      // Generate a unique file name for the uploaded file
-      cb(null, Date.now() + path.extname(file.originalname));
+        cb(null, Date.now() + path.extname(file.originalname));
     }
 });
-  
-// Create Multer instance with configuration
-const upload = multer({ storage: storage });
-  
+
+const upload = multer({ storage: storage }).fields([
+    { name: 'airtistImg', maxCount: 1 },
+    { name: 'imageCover', maxCount: 1 },
+    { name: 'image', maxCount: 1 }
+]);
+
 // Serve uploaded images as static files
 router.use('/uploads', express.static('uploads'));
 
 router.use(cors());
-
-// Middleware to parse JSON bodies
 router.use(express.json());
-router.use(express.urlencoded({extended: false}));
+router.use(express.urlencoded({ extended: false }));
 
-router.post('/upload', upload.single('image'), uploadBlog);
-
+router.post('/upload', upload, uploadBlog);
 router.get('/blogs', getBlog);
 
 export default router;

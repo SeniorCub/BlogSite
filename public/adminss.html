@@ -108,7 +108,7 @@
      <section id="newForm">
           <h1>Create new Blog</h1>
           <div class="close newClose">X</div>
-          <form action="http://localhost:7070/api/v1/blog/upload" method="post" enctype="multipart/form-data" id="new-form">
+          <form action="/api/v1/blog/upload"  method="POST" enctype="multipart/form-data" id="new-form">
                <!-- Title -->
                <label for="title"></label>
                <input type="text" name="title" id="title" placeholder="title">
@@ -173,8 +173,8 @@
                </div>
                <br>
                <!-- Expiry Date -->
-               <label for="expiry_date">Set a date for this post to automatically delete itself</label>
-               <input type="date" id="expiry_date" name="expiry_date">
+               <!-- <label for="expiry_date">Set a date for this post to automatically delete itself</label>
+               <input type="date" id="expiry_date" name="expiry_date"> -->
                <br>
                <button class="upload-btn">Create News</button>
           </form>
