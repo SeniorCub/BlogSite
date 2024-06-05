@@ -1,6 +1,5 @@
-//Server
-import path from 'path';
 import express from 'express';
+import path from 'path';
 import dotenv from 'dotenv';
 import connectdB from './dB/connect.js';
 import morgan from 'morgan';
@@ -13,7 +12,6 @@ import authroute from './routes/authroute.js';
 const app = express();
 dotenv.config();
 connectdB();
-
 
 app.use(express.json());
 app.use(morgan("dev"))
