@@ -1,3 +1,20 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     text-decoration: none;
+     list-style: none;
+}
+body{
+     width: 100vw;
+     overflow-x: hidden!important;
+     position: relative;
+}
+img{
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+}
 .post{
      .postHeader{
           .title{
@@ -130,6 +147,13 @@
           background-color: #ff5e3a;
      }
 }
-@media (max-width:800px) {
-     
+@media (max-width:500px) {
+     section {
+          padding: 0 20px;
+     }
+     .aboutInfo {
+          height: max-content;
+          width: 100%;
+          gap: 10px;
+     }
 }
