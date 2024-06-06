@@ -147,6 +147,11 @@ img{
           background-color: #ff5e3a;
      }
 }
+@media (max-width:800px) {
+     .aboutInfo {
+          gap: 10px;
+     }
+}
 @media (max-width:500px) {
      section {
           padding: 0 20px;
