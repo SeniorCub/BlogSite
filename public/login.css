@@ -17,36 +17,23 @@ a{
      cursor: pointer;
 }
 nav{
-     position: absolute;
-     display: flex;
-     justify-content: space-between;
-     padding: 0 20px;
-     width: 100vw;
-     align-items: center;
-     top: 2%;
-     left: 2%;
-}
-.brannd{
-     display: none;
+     background-color: #2e3a5961;
 }
 section{
-     display: flex;
+     display: flex!important;
      margin: 80px auto!important;
      justify-content: center;
      align-items: center;
      border-radius: 22px;
-     width: 620px;
-     height: 441px;
+     width: 650px;
+     height: 450px;
      background-color: #fff;
 }
 .left{
-     background: url(images/Rectangle\ 33.png);
-     height: 100%;
+     background: url(media/blogs/001.jpg);
+     background-size: cover;
      background-repeat: no-repeat;
-     background-size: contain;
-     width: 260px;
-     padding-top: 46px;
-     padding-left: 23px;
+     height: 100%;
 }
 .advert{
      margin-top: -10px;
@@ -63,10 +50,8 @@ section{
      font-weight: 300;
 }
 .right{
-     width: 360px;
      height: 100%;
      border-radius: 22px;
-     padding: 67px 50px;
 }
 .login-form, .form-group{
      height: 100%;
