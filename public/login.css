@@ -9,7 +9,7 @@ body{
      overflow: hidden;
      font-family: monospace;
      height: 100vh;
-     background-color: #E7E7E7;
+     background-color: #454d4a61;
 }
 a{
      text-decoration: none;
@@ -20,23 +20,22 @@ nav{
      background-color: #2e3a5961;
 }
 section{
-     display: flex!important;
-     margin: 80px auto!important;
-     justify-content: center;
-     align-items: center;
+     margin: 50px auto!important;
      border-radius: 22px;
      width: 650px;
      height: 450px;
+     padding: 0;
      background-color: #fff;
 }
 .left{
      background: url(media/blogs/001.jpg);
      background-size: cover;
      background-repeat: no-repeat;
+     border-radius: 22px 0  0 22px;
      height: 100%;
 }
 .advert{
-     margin-top: -10px;
+     margin-top: 70px;
      font-size: 50px;
      font-weight: 800;
      color: #454D4A;
@@ -51,6 +50,7 @@ section{
 }
 .right{
      height: 100%;
+     padding: 50px 20px;
      border-radius: 22px;
 }
 .login-form, .form-group{
