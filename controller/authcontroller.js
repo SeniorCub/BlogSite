@@ -75,7 +75,7 @@ export const loginClient = async (req, res) => {
           }
           // Change the expiresin to 10 minuites
 
-          const token = await jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: '1m'});
+          const token = await jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: '30s'});
           // Seconds: 's', Minutes: 'm', Hours: 'h', Days: 'd', Weeks: 'w', Months: 'M' (though it's less common and sometimes not supported), Years: 'y'
           res.status(200).send({
                success: true,

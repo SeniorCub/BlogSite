@@ -180,7 +180,7 @@
           </form>
      </section>
 
-     <div class="alerting"></div>
+     <div id="alerting"></div>
 
 
      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -198,7 +198,8 @@
      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
      <script src="admin.js"></script>
      <script>
-          let alerting = document
+          let alerting = document.getElementById('alerting');
+        
           function getToken() {
               return localStorage.getItem('token');
           }
@@ -212,17 +213,27 @@
               window.location.href = '/login.html';
           }
   
+          function showAlertAndLogout(message) {
+              alerting.innerHTML = `
+                  <div class="alert alert-danger d-flex align-items-center" role="alert">
+                      <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:">
+                          <use xlink:href="#exclamation-triangle-fill"/>
+                      </svg>
+                      <div>
+                          ${message}
+                      </div>
+                  </div>
+              `;
+              setTimeout(() => {
+                  logout();
+              }, 10000); // Wait for 10 seconds before logging out
+          }
+  
           function checkToken() {
               const token = getToken();
               if (!token) {
-               alerting.innerHTML =`
-                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                         <div>
-                         An error occured submitting your request. Check your network connection
-                         </div>
-                    </div>`
-                  logout();
+                  showAlertAndLogout('An error occurred submitting your request. Check your network connection');
+                  return;
               }
   
               const payload = JSON.parse(atob(token.split('.')[1]));
@@ -230,15 +241,13 @@
               const now = Date.now();
   
               if (now > expiry) {
-                  logout();
+                  showAlertAndLogout('Session expired. You will be logged out.');
               }
           }
-          
   
           // Check token expiration on page load
           window.onload = () => {
               checkToken();
-  
               setInterval(checkToken, 60 * 1000); // Check every minute
           };
      </script>

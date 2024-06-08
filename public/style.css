@@ -595,7 +595,7 @@ section{
      border-radius: 30px;
      border: 1px solid #20355699;
 }
-.alerting{
+#alerting{
      position: absolute;
      right: 0;
      top: 30%;
