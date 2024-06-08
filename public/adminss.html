@@ -180,6 +180,45 @@
           </form>
      </section>
 
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
      <script src="admin.js"></script>
+     <script>
+          function getToken() {
+              return localStorage.getItem('token');
+          }
+  
+          function saveToken(token) {
+              localStorage.setItem('token', token);
+          }
+  
+          function logout() {
+              localStorage.removeItem('token');
+              window.location.href = '/login.html';
+          }
+  
+          function checkToken() {
+              const token = getToken();
+              if (!token) {
+                  logout();
+              }
+  
+              const payload = JSON.parse(atob(token.split('.')[1]));
+              const expiry = payload.exp * 1000;
+              const now = Date.now();
+  
+              if (now > expiry) {
+                  logout();
+              }
+          }
+          
+  
+          // Check token expiration on page load
+          window.onload = () => {
+              checkToken();
+  
+              setInterval(checkToken, 60 * 1000); // Check every minute
+              
+          };
+     </script>
 </body>
 </html>

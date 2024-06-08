@@ -83,13 +83,16 @@
 
                     const token = response.data.token;
                     const role = response.data.user.email;
+                    const responsee = response;
 
-                    localStorage.setItem('token', token);
-                    console.log(role)
                     if (role == "amebo@mail.com") {
-                         window.location.href = '/adminss.html';
+                         localStorage.setItem('token', token);
+                         localStorage.setItem('response', responsee);
                          console.log("Login successful");
+                         window.location.href = '/adminss.html';
                     } else {
+                         localStorage.setItem('response', responsee);
+                         localStorage.setItem('token', token);
                          console.log("Login successful");
                          window.location.href = '/index.html';
                     }
