@@ -30,6 +30,7 @@ img{
      z-index: 1000;
      align-items: center;
      padding: 10px 30px;
+     background-color: #2e3a5961;
      width: 100vw!important;
      .navbar-brand{
           font-size: 2rem;
@@ -518,7 +519,7 @@ section{
           cursor: pointer;
      }
 }
-.col-4{
+.col-lg-4{
      h4{
           position: relative;
           color: #0d2b41;
@@ -598,7 +599,7 @@ section{
 #alerting{
      position: absolute;
      right: 0;
-     top: 30%;
+     top: 10vh;
      .alert{        
           width: 300px;
           height: 50px;
