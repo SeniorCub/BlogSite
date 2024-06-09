@@ -597,9 +597,10 @@ section{
      border: 1px solid #20355699;
 }
 #alerting{
-     position: absolute;
+     position: fixed;
      right: 0;
-     top: 10vh;
+     z-index: 1000000000;
+     top: 10%;
      .alert{        
           width: 300px;
           height: 50px;
