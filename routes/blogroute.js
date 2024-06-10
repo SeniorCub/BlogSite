@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).fields([
     { name: 'airtistImg', maxCount: 1 },
     { name: 'imageCover', maxCount: 1 },
-    { name: 'image', maxCount: 1 }
+    { name: 'image', maxCount: 10 }
 ]);
 
 router.use('/uploads', express.static('uploads'));

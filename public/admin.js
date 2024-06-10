@@ -14,7 +14,6 @@ fileUploader.addEventListener("change",(ev)=>{
      let fileLabel = document.querySelector(".image-space")
      let file = fileUploader.files[0]
      let imageMimes = ["image/jpeg","image/png","image/svg+xml","image/tiff","image/webp"]
-     let videoMimes = ["video/mp4","video/mpeg","video/ogg","video/mp2t","video/webm","video/3gpp"]
      if (imageMimes.includes(file.type)) {
           //max image size = 5mb
           if (file.size > 5000000) {
@@ -26,21 +25,6 @@ fileUploader.addEventListener("change",(ev)=>{
                // fileLabel.replaceChildren("")
                fileLabel.appendChild(image)
           }
-     }
-     if(videoMimes.includes(file.type)){
-          //max image size = 35mb
-          if (file.size > 35000000) {
-               alert("video size must not exceed 35mb")
-          }
-          else{
-               let video = document.createElement("video")
-               video.src = URL.createObjectURL(file)
-               // fileLabel.replaceChildren("")
-               fileLabel.appendChild(video)
-          }
-     }
-     else{
-          fileUploader.files.pop()
      }
 })
 // Cover Image Upload
