@@ -28,10 +28,6 @@ const blogSchema = new mongoose.Schema({
      quote: {
           type: String,
           require: true
-     },
-     image: {
-          type: String,
-          require: true
      }
 }, {timestamps: true})
 
