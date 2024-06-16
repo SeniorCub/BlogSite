@@ -12,8 +12,6 @@ const storage = multer.diskStorage({
             cb(null, 'uploads/airtistImg');
         } else if (file.fieldname === 'imageCover') {
             cb(null, 'uploads/CoverImg');
-        } else {
-            cb(null, 'uploads/allImg');
         }
     },
     filename: function (req, file, cb) {
@@ -24,7 +22,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).fields([
     { name: 'airtistImg', maxCount: 1 },
     { name: 'imageCover', maxCount: 1 },
-    { name: 'image', maxCount: 10 }
 ]);
 
 router.use('/uploads', express.static('uploads'));
