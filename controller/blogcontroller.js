@@ -12,7 +12,6 @@ export const uploadBlog = async (req, res) => {
 
         const airtistImgURL = `${req.protocol}://${req.get('host')}/uploads/airtistImg/${files.airtistImg[0].filename}`;
         const imageCoverURL = `${req.protocol}://${req.get('host')}/uploads/CoverImg/${files.imageCover[0].filename}`;
-        const imageURL = `${req.protocol}://${req.get('host')}/uploads/allImg/${files.image[0].filename}`;
 
         const newBlog = new blogModels({
             title,
@@ -21,8 +20,7 @@ export const uploadBlog = async (req, res) => {
             category,
             airtistImg: airtistImgURL,
             imageCover: imageCoverURL,
-            quote,
-            image: imageURL
+            quote
         });
         await newBlog.save();
 
@@ -59,11 +57,6 @@ export const updateBlog = async (req, res) => {
         if (req.files && req.files.imageCover) {
             updatedFields.imageCover = `${req.protocol}://${req.get('host')}/uploads/CoverImg/${req.files.imageCover[0].filename}`;
         }
-
-        if (req.files && req.files.image) {
-            updatedFields.image = `${req.protocol}://${req.get('host')}/uploads/allImg/${req.files.image[0].filename}`;
-        }
-
         const updatedBlog = await blogModels.findByIdAndUpdate(news_id, updatedFields, { new: true });
 
         res.status(200).json({
