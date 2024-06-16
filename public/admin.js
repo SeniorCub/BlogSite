@@ -8,25 +8,6 @@ document.querySelector(".newClose").addEventListener("click", () => {
      document.querySelector("#newForm").style.display = "none";
 })
 
-// Images and Videsos Upload
-let fileUploader = document.getElementById("image")
-fileUploader.addEventListener("change",(ev)=>{
-     let fileLabel = document.querySelector(".image-space")
-     let file = fileUploader.files[0]
-     let imageMimes = ["image/jpeg","image/png","image/svg+xml","image/tiff","image/webp"]
-     if (imageMimes.includes(file.type)) {
-          //max image size = 5mb
-          if (file.size > 5000000) {
-               alert("image size must not exceed 5mb")
-          }
-          else{
-               let image = document.createElement("img")
-               image.src = URL.createObjectURL(file)
-               // fileLabel.replaceChildren("")
-               fileLabel.appendChild(image)
-          }
-     }
-})
 // Cover Image Upload
 let fileUploade = document.getElementById("imageCover")
 fileUploade.addEventListener("change",(ev)=>{
