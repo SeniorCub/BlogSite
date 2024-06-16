@@ -42,25 +42,6 @@ img{
                border-radius: 50%;
           }
      }
-     .gallery{
-          overflow-x: scroll;
-          div{
-               animation: move 10s linear infinite;
-               img{
-                    width: 80px;
-                    height: 100%;
-                    object-fit: cover;
-               }
-          }
-     }
-}
-@keyframes move{
-     0%{
-          transform: translateX(0);
-     }
-     100%{
-          transform: translateX(-100%);
-     }
 }
 ::-webkit-scrollbar{
      display: none;

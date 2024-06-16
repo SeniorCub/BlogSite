@@ -126,21 +126,9 @@
                                   </div>
                               </div>
                               <div class="col-lg-3 content">${blog.content}</div>
-                              <div class="col-lg-2 gallery">
-                                  <div class="d-flex gap-1 gallery-images">
-                                      <!-- Gallery image will be appended here -->
-                                  </div>
-                              </div>
                               <div class="col-lg-1 publication_date">${new Date(blog.updatedAt).toLocaleDateString()}</div>
                           </div>
                       `;
-      
-                      // Add single gallery image
-                      const galleryImagesContainer = blogItem.querySelector('.gallery-images');
-                      const imgElement = document.createElement('img');
-                      imgElement.src = blog.image;
-                      imgElement.alt = "Gallery image";
-                      galleryImagesContainer.appendChild(imgElement);
       
                       blogItem.addEventListener('click', () => {
                           // Store blog details in localStorage

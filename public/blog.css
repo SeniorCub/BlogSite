@@ -63,15 +63,6 @@ img{
           }
      }
      .postFooter{
-          .gallery{
-               height: 30vh;
-               width: 100%;
-               overflow-x: scroll;
-               border: #ff5e3a 1px dashed;
-               img{
-                    object-fit: contain;
-               }
-          }
           .moee{
                font-size: 15px;
                color: #8f9bad;
