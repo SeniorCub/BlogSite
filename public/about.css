@@ -1,0 +1,95 @@
+.about-us{
+     background-color: #0d2b41;
+     .about-us-heading{
+          font-size: 40px;
+          font-weight: 600;
+          color: #484849;
+          margin-bottom: 20px;
+     }
+     .about-us-text{
+          font-size: 20px;
+          color: #8f9bad;
+          font-weight: 300;
+          line-height: 1.8;
+     }
+}
+.contact-us{
+     background-color: #0d2b41;
+     .contact-us-heading{
+          font-size: 40px;
+          font-weight: 600;
+          color: #484849;
+          margin-bottom: 20px;
+     }
+     .contact-us-text{
+          font-size: 20px;
+          color: #8f9bad;
+          font-weight: 300;
+          line-height: 1.8;
+     }
+     .contact-us-info{
+          font-size: 20px;
+          color: #8f9bad;
+          font-weight: 300;
+          line-height: 1.8;
+          margin-top: 20px;
+          .contact-us-info-item{
+               display: flex;
+               align-items: center;
+               margin-bottom: 10px;
+               i{
+                    font-size: 30px;
+                    color: #ff5e3a;
+                    margin-right: 10px;
+               }
+               span{
+                    font-size: 20px;
+                    color: #8f9bad;
+                    font-weight: 300;
+               }
+               a{
+                    font-size: 20px;
+                    color: #8f9bad!important;
+                    font-weight: 300;
+                    text-decoration: none;
+               }
+          }
+     }
+     .contact-form{
+          margin-top: 20px;
+          margin-bottom: 20px;
+          label{
+               font-size: 20px;
+               color: #8f9bad;
+               font-weight: 300;
+          }
+          input{
+               width: 100%;
+               padding: 10px;
+               font-size: 20px;
+               color: #484849;
+               font-weight: 300;
+               border: 1px solid #8f9bad;
+               border-radius: 5px;
+          }
+          textarea{
+               width: 100%;
+               padding: 10px;
+               font-size: 20px;
+               color: #484849;
+               font-weight: 300;
+               border: 1px solid #8f9bad;
+               border-radius: 5px;
+          }
+     }
+     button{
+          padding: 10px 20px;
+          font-size: 20px;
+          color: #fff;
+          font-weight: 300;
+          background-color: #ff5e3a!important;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+     }
+}
