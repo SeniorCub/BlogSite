@@ -131,6 +131,79 @@ img{
           }
      }
 }
+.col-lg-6{
+     h4{
+          position: relative;
+          color: #0d2b41;
+     }
+     h4:before{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          z-index: -3;
+          left: 0;
+          height: 10px;
+          width: 100%;
+          background: #d7d7d7;
+          clip-path: polygon(100%, 50%, 30%, 100%);
+     }
+     .tag-btn{
+          border: 2px solid #0d2b41;
+          color: #0d2b41;
+          border-radius: 100px;
+          margin: 10px;
+     }
+     .tag-btn:hover{
+          border: 2px solid #ff5e3a;
+          color: #ff5e3a;
+          transition: .8s;
+     }
+     .newsletter{
+          .btn{
+               background: #ff5e3a;
+               color: #fff;
+          }
+          ::placeholder{
+               color: #0d2b41;
+               text-align: center;
+          }
+          .form-control,
+          .btn{
+               border-radius: 100px;
+          }
+          a{
+               color: #ff5e3a !important;
+          }
+          textarea{
+               border-radius: 20px!important;
+          }
+     }
+     .explore-ul{
+          li{
+               border-top: 1px solid #0d2b41;
+          }
+          b{
+               color: #0d2b41;
+          }
+          b:hover{
+               color: #ff5e3a;
+               transition: .8s;
+          }
+     }
+     .cardss{
+          .btn{
+               background: #ff5e3a;
+               border-radius: 100px;
+               color: #fff;
+          }
+          .btn2{
+               border: 1px solid #333;
+               border-radius: 100px;
+               color: #ff5e3a;
+               background-color: transparent;
+          }
+     }
+}
 @media (max-width:800px) {
      .aboutInfo {
           gap: 10px;
