@@ -17,8 +17,10 @@ img{
 }
 .post{
      .postHeader{
-          .title{
-               font-size: 36px;
+          .topic{
+               font-size: 35px;
+               color: #484849;
+               font-weight: 600;
           }
           .abouu{
                font-size: 15px;

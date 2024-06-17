@@ -44,16 +44,16 @@
         <div class="col-12 my-3">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item artist"><a href="#">Katen</a></li>
-                    <li class="breadcrumb-item"><a href="#">Trending</a></li>
+                    <li class="breadcrumb-item artist"><a id="blog-author">Katen</a></li>
+                    <li class="breadcrumb-item"><a id="blog-category">Trending</a></li>
                     <li class="breadcrumb-item active" aria-current="page" id="blog-title">Blog Title</li>
                 </ol>
             </nav>
             <div class="post">
                 <div class="postHeader my-3">
-                    <div class="topic my-2" id="blog-title-header">Blog Title</div>
+                    <div class="topic my-2" id="blog-title">Blog Title</div>
                     <div class="d-flex align-items-center abouu">
-                        <div class="authorImg"><img src="media/blogs/dp.jpg" alt=""></div>
+                        <div class="authorImg"><img id="airtistImg" src="media/blogs/dp.jpg" alt=""></div>
                         <div class="artist" id="blog-author">Author Name</div>
                         <div class="dot"></div>
                         <div class="cartego" id="blog-category">Category</div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="postBody">
-                    <div class="featuredImg"><img src="/media/blogs/005.jpg" alt="" id="blog-image"></div>
+                    <div class="featuredImg"><img src="/media/blogs/005.jpg" alt="Blog cover image" id="blog-image"></div>
                     <div class="introduction" id="blog-content">
                         Blog content goes here...
                     </div>
@@ -74,24 +74,24 @@
                         <div class="d-flex flex-column share">
                             <div class="info">Share this:</div>
                             <div class="d-flex gap-3 links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                <a class="facebook"><i class="fab fa-facebook"></i></a>
+                                <a class="twitter"><i class="fab fa-twitter"></i></a>
+                                <a class="linkedin"><i class="fab fa-linkedin"></i></a>
+                                <a class="whatsapp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
-                        <div class="d-flex gap-3 keywords">
+                        <!-- <div class="d-flex gap-3 keywords">
                             <div class="words">content</div>
                             <div class="words">image</div>
                             <div class="words">trending</div>
                             <div class="words">pick</div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="aboutInfo">
-                        <div class="authorImg"><img src="media/blogs/dp.jpg" alt=""></div>
+                        <div class="authorImg"><img id="airtistImg" src="media/blogs/dp.jpg" alt=""></div>
                         <div class="abouttM">
-                            <div class="artist">Katen Doe</div>
+                            <div class="artist" id="blog-author">Katen Doe</div>
                             <div class="quote">Hello, I’m a content writer who is fascinated by content fashion, celebrity and lifestyle. She helps clients bring the right content to the right people.</div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
 
         <div class="col-12 posts">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 my-3">
+                <!-- <div class="col-lg-4 col-md-12 col-sm-12 my-3">
                     <div class="card bg-transparent text-center p-4">
                         <h4 class="mb-4">Tag Clouds</h4>
                         <div class="tag-btns">
@@ -117,7 +117,7 @@
                             <button class="btn tag-btn">#Trending</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-4 col-md-12 col-sm-12 my-3">
                     <div class="card bg-transparent text-center p-4 d-grid gap-4 newsletter">
                         <h4 class="mb-4">Newsletter</h4>
@@ -131,7 +131,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 my-3">
                     <div class="card bg-transparent text-center p-4 d-grid gap-4 newsletter">
                         <h4 class="mb-4">Leave a Comment</h4>
-                        <form class="news-form d-grid gap-3">
+                        <form class="news-form d-grid gap-3">aunauthorImg
                             <input type="text" placeholder="Name" class="form-control">
                             <input type="text" placeholder="Email Address" class="form-control">
                             <textarea name="comment" id="writecomment" rows="3" placeholder="Comment" class="form-control"></textarea>
@@ -153,13 +153,14 @@
             const selectedBlog = JSON.parse(localStorage.getItem('selectedBlog'));
             
             if (selectedBlog) {
-                document.getElementById('blog-title').innerText = selectedBlog.title;
-                document.getElementById('blog-title-header').innerText = selectedBlog.title;
-                document.getElementById('blog-author').innerText = selectedBlog.author;
-                document.getElementById('blog-category').innerText = selectedBlog.category;
-                document.getElementById('blog-date').innerText = new Date(selectedBlog.publication_date).toLocaleDateString();
-                document.getElementById('blog-content').innerText = selectedBlog.content;
-                document.getElementById('blog-image').src = selectedBlog.image_url; // Assuming there's an image_url field
+               document.querySelectorAll('#blog-title').forEach(img => img.innerText = selectedBlog.title);
+               document.querySelectorAll('#blog-author').forEach(img => img.innerText = selectedBlog.author);
+               document.querySelectorAll('#blog-category').forEach(img => img.innerText = selectedBlog.category);
+               document.getElementById('blog-date').innerText = new  Date(selectedBlog.updatedAt).toLocaleDateString();
+               document.getElementById('blog-content').innerText = selectedBlog.content;
+               document.getElementById('blog-image').src = selectedBlog.imageCover;
+               document.querySelectorAll('#airtistImg').forEach(img => img.src = selectedBlog.airtistImg);
+               document.querySelector('.quote').innerText = selectedBlog.quote;
             }
         });
     </script>
