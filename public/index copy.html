@@ -114,7 +114,7 @@
                       blogItem.classList.add('news');
                       blogItem.innerHTML = `
                           <div class="row blog-content">
-                              <div class="col-lg-1 blog-img" style="background-image: url(${blog.imageCover});"></div>
+                              <div class="col-lg-2 blog-img" style="background-image: url(${blog.imageCover});"></div>
                               <div class="col-lg-5 infromate">
                                   <h2 class="title">${blog.title}</h2>
                                   <div class="d-flex align-items-center gap-3">
@@ -125,7 +125,7 @@
                                       <p class="category">${blog.category}</p>
                                   </div>
                               </div>
-                              <div class="col-lg-3 content">${blog.content}</div>
+                              <div class="col-lg-4 content">${blog.content}</div>
                               <div class="col-lg-1 publication_date">${new Date(blog.updatedAt).toLocaleDateString()}</div>
                           </div>
                       `;
