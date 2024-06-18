@@ -2,7 +2,13 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import mongoose from 'mongoose';
+import fs from 'fs';
 import blogModels from "../models/blogmodels.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Upload Blog
 export const uploadBlog = async (req, res) => {
@@ -74,21 +80,53 @@ export const updateBlog = async (req, res) => {
 
 // Delete Blog
 export const deleteBlog = async (req, res) => {
-    try {
-        const { news_id } = req.params;
-        await blogModels.findByIdAndDelete(news_id);
-        res.status(200).json({
-            success: true,
-            msg: "Blog deleted successfully"
-        });
-    } catch (err) {
-        return res.status(500).json({
-            success: false,
-            msg: err.message
-        });
-    }
-};
-
+     try {
+         const { news_id } = req.params;
+         const blog = await blogModels.findById(news_id);
+ 
+         if (!blog) {
+             return res.status(404).json({
+                 success: false,
+                 msg: "Blog not found"
+             });
+         }
+ 
+         // Delete the associated files
+         const airtistImgPath = path.join(__dirname, `../../uploads/airtistImg/${path.basename(blog.airtistImg)}`);
+         const imageCoverPath = path.join(__dirname, `../../uploads/CoverImg/${path.basename(blog.imageCover)}`);
+ 
+         console.log('Attempting to delete files:', { airtistImgPath, imageCoverPath });
+ 
+         // Check if files exist and delete them
+         if (fs.existsSync(airtistImgPath)) {
+             fs.unlinkSync(airtistImgPath);
+             console.log('Deleted file:', airtistImgPath);
+         } else {
+             console.log('File not found:', airtistImgPath);
+         }
+ 
+         if (fs.existsSync(imageCoverPath)) {
+             fs.unlinkSync(imageCoverPath);
+             console.log('Deleted file:', imageCoverPath);
+         } else {
+             console.log('File not found:', imageCoverPath);
+         }
+ 
+         await blogModels.findByIdAndDelete(news_id);
+ 
+         res.status(200).json({
+             success: true,
+             msg: "Blog deleted successfully"
+         });
+     } catch (err) {
+         console.error('Error deleting blog:', err);
+         return res.status(500).json({
+             success: false,
+             msg: err.message
+         });
+     }
+ };
+ 
 // All Blogs
 export const getBlog = async (req, res) => {
     try {
